@@ -139,7 +139,7 @@ HASH1为`dcd46d897adb70d63e025f175a00a89797d31a43`
 ### 家目录里的秘密 
 
 #### VSCode里的flag
-Windows文件管理器在`home`目录下检索`falg`，打开检索到的`DUGV.c`文件，第五行注释赫然写着`flag{finding_everything_through_vscode_config_file_********}`
+Windows文件管理器在`home`目录下检索`flag`，打开检索到的`DUGV.c`文件，第五行注释赫然写着`flag{finding_everything_through_vscode_config_file_********}`
 
 ![搜索](img/0x03.png)
 ![注释中的flag](img/0x04.png)
