@@ -52,7 +52,7 @@
 
 
 
-### 签到 
+### **0x00签到** 
 
 作为签到题题目难度必然不大。题目存在四个画板，要求在规定时间内完在其中写出数字，并交由系统识别。规定时间分别为 `2.0s` `1.0s` `0.1s` `0.0s`，我们 **很难** 直接完成 （可以）
 ![地址栏](img/0x00.png)
@@ -66,7 +66,7 @@
 ~~欸嘿~~
 
 
-### 猫咪问答喵🐾
+### **0x01猫咪问答喵🐾**
 
 作为传统开篇题目一定继承了前几年的解题套路。在浏览题目前我默默打开了 🔗[LUG @ USTC](https://lug.ustc.edu.cn/) 主页。
 
@@ -136,15 +136,15 @@ HASH1为`dcd46d897adb70d63e025f175a00a89797d31a43`
 `flag{meowexamfullymeowed!_***************_**********}`
 
 
-### 家目录里的秘密 
+### **0x02 家目录里的秘密** 
 
-#### VSCode里的flag
+#### **VSCode里的flag**
 Windows文件管理器在`home`目录下检索`flag`，打开检索到的`DUGV.c`文件，第五行注释赫然写着`flag{finding_everything_through_vscode_config_file_********}`
 
 ![搜索](img/0x03.png)
 ![注释中的flag](img/0x04.png)
 
-#### Rclone 里的 flag
+#### **Rclone 里的 flag**
 
 不难发现`\user_home\user\.config\rclone` 路径中的 `rclone.conf` 文件，该文件包含一个ftp连接配置。
 ```
@@ -193,21 +193,24 @@ func main() {
 ```
 成功取得flag`flag{get_rclone_password_from_config!_*******}`
 
-### HeiLang 
+
+### **0x03 HeiLang**
+
+题目定义了一种新的赋值语句，用 `A[x | y | z] = t` 来表示之前**复杂**的 `A[x] = t; A[y] = t; A[z] = t`。 ~~（感觉特别像中学时期做的某些数学题）~~ 观察题目不难解读题意，只要根据题目提示正确赋值数组a即可。
+本题笔者并没有使用任何编程语言处理语句，利用编辑器自带的替换功能，把 `|` 替换成 `] = a[` 从而重构赋值语句。跑一下脚本得出flag `flag{6d9ad6e9a6268d96-****************}`
+
+
+### **0x04 Xcaptcha** 
 Coming soon~
 
-### Xcaptcha 
+### **0x05 旅行照片 2.0** 
 Coming soon~
 
-### 旅行照片 2.0 
+### **0x06 猜数字** 
 Coming soon~
 
-### 猜数字 
+### **0x07 LaTeX 机器人(纯文本)** 
 Coming soon~
 
-### LaTeX 机器人(纯文本) 
-Coming soon~
-
-
-### 线路板 
+### **0x08 线路板**
 Coming soon~
