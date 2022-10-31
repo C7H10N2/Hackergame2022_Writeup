@@ -131,7 +131,7 @@ HASH1为`dcd46d897adb70d63e025f175a00a89797d31a43`
 
 ![全部的喵8](img/0x02.png)
 
-至此猫咪问答喵完美解决。笔者解决题号顺序为`1 2 5 3 4 6`。经历数次检索偏差和撞墙后~~顺利~~拿到falg 
+至此猫咪问答喵完美解决。笔者解决题号顺序为`1 2 5 3 4 6`。经历数次检索偏差和撞墙后~~顺利~~拿到flag 
 `flag{meowexammeow_***************_**********}`
 `flag{meowexamfullymeowed!_***************_**********}`
 
@@ -191,7 +191,7 @@ func main() {
 	}
 }
 ```
-成功取得falg`flag{get_rclone_password_from_config!_*******}`
+成功取得flag`flag{get_rclone_password_from_config!_*******}`
 
 ### HeiLang 
 Coming soon~
