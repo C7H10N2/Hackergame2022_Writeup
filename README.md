@@ -1,6 +1,6 @@
 # Hackergame2022_Writeup
 
-### 写在文前
+### **写在文前**
 
 本文记录笔者参与中国科学技术大学第九届信息安全大赛（Hackergame2022）提交的flags以及解题思路。已开放Dicussions欢迎讨论~~我猜没人看~~
 
@@ -8,8 +8,11 @@
 第一次公开提交Writeup，但本人解答的题目并不多，解题思路并不是最佳方案，旨在记录个人在CTF领域学习历程。
 完成题目 `签到` `猫咪问答喵`  `家目录里的秘密` `HeiLang` `Xcaptcha` `旅行照片 2.0` `猜数字` `LaTeX 机器人(纯文本)` `线路板`
 
+---
 
-### 官方题解
+
+### ****官方题解**
+
 该部分引用自项目 🔗[hackergame2022-writeups](https://github.com/USTC-Hackergame/hackergame2022-writeups) [版权申明](https://github.com/USTC-Hackergame/hackergame2022-writeups#%E7%89%88%E6%9D%83%E5%A3%B0%E6%98%8E)
 
 部分题目需要使用 Token。Token 可以从比赛平台注册获取，也可以使用 `1:MEUCIQC24dB6B24/LDr2O+4cifbzOEFDbkXg3hJIqTXuuvpa1QIgbzMM/F0uUmYIudtM6qEDvOpEHbtTZjSjTWMcA5zhnos=` 作为测试 token。
@@ -50,9 +53,16 @@
 | [📁火眼金睛的小 E](official/火眼金睛的小%20E/README.md) | [文件、源代码](official/火眼金睛的小%20E/src) |
 | [📁evilCallback](official/evilCallback/README.md) | [文件、源代码](official/evilCallback/src) |
 
+<br>
+<br>
 
+---  
+
+<br>
 
 ### **0x00签到** 
+
+<br>
 
 作为签到题题目难度必然不大。题目存在四个画板，要求在规定时间内完在其中写出数字，并交由系统识别。规定时间分别为 `2.0s` `1.0s` `0.1s` `0.0s`，我们 **很难** 直接完成 （可以）
 ![地址栏](img/0x00.png)
@@ -65,8 +75,13 @@
 ![牛欸](img/0x01.png)
 ~~欸嘿~~
 
+---
+
+<br>
 
 ### **0x01猫咪问答喵🐾**
+
+<br>
 
 作为传统开篇题目一定继承了前几年的解题套路。在浏览题目前我默默打开了 🔗[LUG @ USTC](https://lug.ustc.edu.cn/) 主页。
 
@@ -135,8 +150,13 @@ HASH1为`dcd46d897adb70d63e025f175a00a89797d31a43`
 `flag{meowexammeow_***************_**********}`
 `flag{meowexamfullymeowed!_***************_**********}`
 
+---
+
+<br>
 
 ### **0x02 家目录里的秘密** 
+
+<br>
 
 #### **VSCode里的flag**
 Windows文件管理器在`home`目录下检索`flag`，打开检索到的`DUGV.c`文件，第五行注释赫然写着`flag{finding_everything_through_vscode_config_file_********}`
@@ -193,24 +213,94 @@ func main() {
 ```
 成功取得flag`flag{get_rclone_password_from_config!_*******}`
 
+---
+
+<br>
 
 ### **0x03 HeiLang**
+
+<br>
 
 题目定义了一种新的赋值语句，用 `A[x | y | z] = t` 来表示之前**复杂**的 `A[x] = t; A[y] = t; A[z] = t`。 ~~（感觉特别像中学时期做的某些数学题）~~ 观察题目不难解读题意，只要根据题目提示正确赋值数组a即可。
 本题笔者并没有使用任何编程语言处理语句，利用编辑器自带的替换功能，把 `|` 替换成 `] = a[` 从而重构赋值语句。跑一下脚本得出flag `flag{6d9ad6e9a6268d96-****************}`
 
+---
+
+<br>
 
 ### **0x04 Xcaptcha** 
-Coming soon~
+
+<br>
+
+captcha全自动区分计算机和人类的图灵测试，这种程序必须能生成并评价人类能很容易通过但计算机却通不过的测试。2038年Xcaptcha拦住了CTFers的去路.......
+
+本题只需要在一秒内完成三个简单加法运算即可。基本思路使用Tampermonkey自动完成计算并提交，首先眼疾手快存储一份HTML文件，根据标签名称编写脚本。具体实现方法笔者给出一种如下：
+
+```JavaScript
+// ==UserScript==
+// @name         I am a bot
+// @namespace    Xcaptchat
+// @version      0.1
+// @description  -
+// @author       -
+// @match        http://202.38.93.111:10047/xcaptcha
+// @require      http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js
+// ==/UserScript==
+
+(function () {
+    'use strict';
+
+    var i = 1; //不懂Tampermonkey为什么不能在for中定义
+    for (i; i <= 3; i++) {
+        var q = $('label[for="captcha' + i + '"]').text().split(' ')[0].split('+'); //匹配
+        var a = BigInt(q[0]) + BigInt(q[1]); //计算
+        document.querySelector("#captcha" + i).value = a; //填写
+    }
+    document.getElementById('submit').click(); //提交
+
+})();
+```
+现在点击验证Tampermonkey插件就会自动完成验证。Im a bot！
+
+`flag{head1E55_br0w5er_and_ReQuEsTs_areallyour_FR1ENd_**********}`
+
+
+---
+
+<br>
 
 ### **0x05 旅行照片 2.0** 
+
+<br>
+
 Coming soon~
+
+---
+
+<br>
 
 ### **0x06 猜数字** 
+
+<br>
+
 Coming soon~
+
+---
+
+<br>
 
 ### **0x07 LaTeX 机器人(纯文本)** 
+
+<br>
+
 Coming soon~
 
+---
+
+<br>
+
 ### **0x08 线路板**
+
+<br>
+
 Coming soon~
