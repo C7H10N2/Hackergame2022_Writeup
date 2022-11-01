@@ -11,7 +11,7 @@
 ---
 
 
-### ****官方题解**
+### **官方题解**
 
 该部分引用自项目 🔗[hackergame2022-writeups](https://github.com/USTC-Hackergame/hackergame2022-writeups) [版权申明](https://github.com/USTC-Hackergame/hackergame2022-writeups#%E7%89%88%E6%9D%83%E5%A3%B0%E6%98%8E)
 
