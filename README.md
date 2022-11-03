@@ -362,4 +362,6 @@ Coming soon~
 
 <br>
 
-Coming soon~
+Gerber是一种二维矢量图像文件格式。它是印刷线路板行业软件中用于描述印刷线路板图像的标准格式，例如：线路层，阻焊层，字符层，钻孔层等。而我们需要查看的就是上层线路层。Gerber是矢量文件，我们可以推测上层圆环覆盖是适量图形，由半径线宽等参量描述绘制，思路一：将上层圆环删除。比如可以在Aultium Designer等EDA软件内将Gerber转成PCB工程文件。思路二：使用[🔗第三方Gerber查看器](https://gerber-viewer.ucamco.com/)，只绘制轮廓，不填充颜色（Outline View），如此以来flag上方遮挡就不会造成影响。
+![旅行照片](./img/0x10.png)
+`flag{8_1ayER_rogeRS_81ind_V1a}`
